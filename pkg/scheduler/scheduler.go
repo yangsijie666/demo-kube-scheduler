@@ -59,10 +59,10 @@ func New(_ runtime.Object, h v1alpha1.FrameworkHandle) (v1alpha1.Plugin, error) 
 }
 
 func (y *DemoScheduler) Reserve(ctx context.Context, state *v1alpha1.CycleState, pod *v1.Pod, nodeName string) *v1alpha1.Status {
-	klog.Infof("[Reserve] Node: %v, in Plugin: Yoda When scheduling Pod: %v/%v", nodeName, pod.GetNamespace(), pod.GetName())
+	klog.Infof("[Reserve] Node: %v, in Plugin: demo-scheduler When scheduling Pod: %v/%v", nodeName, pod.GetNamespace(), pod.GetName())
 	return v1alpha1.NewStatus(v1alpha1.Success, "")
 }
 
 func (y *DemoScheduler) Unreserve(ctx context.Context, _ *v1alpha1.CycleState, pod *v1.Pod, nodeName string) {
-	klog.Infof("[Unreserve] Node: %v, in Plugin: Yoda When scheduling Pod: %v/%v", nodeName, pod.GetNamespace(), pod.GetName())
+	klog.Infof("[Unreserve] Node: %v, in Plugin: demo-scheduler When scheduling Pod: %v/%v", nodeName, pod.GetNamespace(), pod.GetName())
 }

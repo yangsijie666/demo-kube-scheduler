@@ -1,0 +1,21 @@
+apiVersion: kubescheduler.config.k8s.io/v1beta1
+kind: KubeSchedulerConfiguration
+clientConnection:
+  kubeconfig: /Users/yangsijie/.kube/config
+leaderElection:
+  leaderElect: true
+  leaseDuration: 15s
+  renewDeadline: 10s
+  resourceLock: leases
+  resourceName: demo-scheduler
+  resourceNamespace: kube-system
+  retryPeriod: 2s
+percentageOfNodesToScore: 0
+podInitialBackoffSeconds: 1
+podMaxBackoffSeconds: 10
+profiles:
+  - plugins:
+      reserve:
+        enabled:
+          - name: demo-scheduler
+    schedulerName: demo-scheduler
